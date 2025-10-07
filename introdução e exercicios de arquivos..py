@@ -43,3 +43,11 @@ arquivo.close()
 #Lista de compras interativa
 #Peça para o usuário digitar 5 itens de compra e escreva cada um em uma nova linha no arquivo compras.txt.
 
+arquivo = open("compras.txt", "w", encoding="utf8")
+itens = [0] * 5
+
+for i in range(0, len(itens)):
+    itens [i] = input(f"Digite {i+1} itens de compras: ")
+    arquivo.write(f"{itens[i]}\n")
+
+arquivo.close()
