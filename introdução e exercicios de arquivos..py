@@ -50,4 +50,4 @@ for i in range(0, len(itens)):
     itens [i] = input(f"Digite {i+1} itens de compras: ")
     arquivo.write(f"{itens[i]}\n")
 
-arquivo.close()
+arquivo.close() 
