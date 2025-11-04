@@ -9,6 +9,25 @@ class Pessoa: #define a classe.
     def mostrar(self):
         print(f"Ola, meu nome é {self.nome} e tenho {self.idade} anos.")
 
+#Herança da classe Pessoa:
+
+class Cliente:
+    def __init__(self, nome, idade, conta):
+        super.__init__(nome, idade)
+        self.conta = conta
+    
+    def mostrar(self):
+        print(f"O nome é {self.nome} contém {self.idade} de idade e é cliente") 
+        self.conta.mostrar_saldo() #Utilização de um objeto dentro de outro objeto retirado da conta bancaria.
+
+class Funcionario:
+    def __init__(self, nome, idade, cargo, ):
+        super.__init__(nome, idade)
+        self.cargo = cargo
+    
+    def mostrar(self):
+        print(f"O nome é {self.nome} com {self.idade} no cargo de {self.cargo}")
+        
 # Crie uma classe ContaBancaria com:
 
 # atributos: titular, saldo
