@@ -33,18 +33,21 @@ class Funcionario:
 # atributos: titular, saldo
 
 # métodos: depositar(valor), sacar(valor) e mostrar_saldo()
-
+#. Encapsulamento — melhorando a classe ContaBancaria:
 class ContaBancaria:
     def __init__(self, titular, saldo):
         self.titular = titular
-        self.saldo = saldo
+        self.__saldo = saldo #Deixa privado conseguindo ter acesso apenas pelo metodos da classe
     
     def depositar(self, valor):
-        self.saldo += valor
-        print(f"Deposito de R${valor:.2f} realizado com sucesso!")
-
+        if(valor > 0): 
+            self.saldo += valor
+            print(f"Deposito de R${valor:.2f} realizado com sucesso!")
+        else:
+            print(f"Valor invalido")
+    
     def sacar(self, valor):
-        if(self.saldo <= valor):
+        if(self.__saldo <= valor):
             self.saldo -= valor
             print(f"Saque de valor R${valor:.2f} realizado com sucesso!")
         else:
