@@ -2,16 +2,14 @@ def cadastrar(nome, valor, data):
     nome = input("Digite o nome")
     valor = float(input("Digite o valor"))
     data = input("Informea data: ")
-    return "foi adicionada"
+    return nome, valor, data
 
-def alterar(ID,novo_nome, novo_valor, nova_data):
-    if(ID <= ID):
-        nome_valor = input("Informe o novo nome: ")
-        novo_valor = float(input("informe o novo valor: "))
-        nova_data = input("Informe a nova data: ")
-        return "Novos valores "
+def alterar():
+    novo_nome = input("Informe o novo nome: ")
+    novo_valor = float(input("informe o novo valor: "))
+    nova_data = input("Informe a nova data: ")
+    return novo_nome, novo_valor, nova_data
     
-def excluir(ID):
-    if(ID == ID):
-        return
-    
+def excluir():
+    ID = int(input("Informe o ID do produto a excluir: "))
+    return ID

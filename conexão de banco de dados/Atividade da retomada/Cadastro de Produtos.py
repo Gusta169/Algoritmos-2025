@@ -28,24 +28,47 @@ while(True):
         nome = None
         valor = None
         data = None
-        cadastrar(nome,valor,data)
+        nome, valor, data = cadastrar(nome,valor,data)
 
         sql = """INSERT INTO produtos (nome, valor, data)
                 VALUES (%s, %s, %s)
-                """
-        cursor.execute(sql)
+            """
+        cursor.execute(sql, (nome,valor,data))
+        con.commit()
         print("Produto cadastrado")
 
-    if(usuario == 2):
+    elif(usuario == 2):
         ID = int(input("Informe o ID do produto: "))
-        alterar(ID, nome, valor, data)
+        novo_nome, novo_valor, nova_data = alterar()
         sql = """
             UPDATE produtos 
-            SET nome = 'nome';
-            SET valor = valor;
-            SET data = 'data';
+            SET nome = %s, valor = %s, data = %s
+            WHERE id = %s
         """
-    cursor.execute(sql)
-    print("Produto alterado")
+        cursor.execute(sql, (novo_nome, novo_valor, nova_data, ID))
+        con.commit()
+        print("Produto alterado")
 
-        
+    elif(usuario == 3):
+        ID = excluir()
+        sql = """DELETE from produtos WHERE id = %s"""
+        cursor.execute(sql, (ID,))
+        con.commit()
+        print("Produto excluido")
+
+    elif(usuario == 4):
+        sql = """SELECT * FROM produtos"""
+        cursor.execute(sql)
+        produtos = cursor.fetchall()
+        print("Lista de produtos: ")
+        for i in produtos:
+            print("ID: ", i [0])
+            print("Nome: ", i [1])
+            print("Valor: ", i [2])
+            print("Data: ", i [3])
+
+    elif(usuario == 5):
+        print("Saindo...")
+        break
+    else:
+        print("Opção invalida, tente novamente")
