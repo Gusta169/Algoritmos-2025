@@ -100,3 +100,23 @@ pessoa = {
         "cargo": "Desenvolvedor"
     }
 }
+
+#exercicio
+
+aluno = {
+    "nome": "Amauri",
+    "idade": 13,
+    "curso": {"Engenharia de software"}
+}
+
+print("-_Lista_-")
+print("Nome: ", aluno["nome"])
+print("Idade: ", aluno["idade"])
+print("curso: ", aluno["curso"])
+
+aluno ["idade"] = int(input("Nova idade: "))
+
+aluno["nota"] = int(input("Nova nota: "))
+
+for chave, valor in aluno.item():
+    print(f"{chave} é {valor}")
